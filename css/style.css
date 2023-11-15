@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+body{
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	height: 100vh;
+	width: 100vw;
+}
+
+.wrapper {
+	background: #f2f2f2;
+	display: grid;
+	grid-template-columns: 400px 1fr;
+	grid-template-rows: 88px 1fr;
+	grid-template-areas:
+		"menu toolbar"
+		"menu content";
+	min-height: 100%;
+}
+
+.sidebar {
+	grid-area: menu;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 400px;
+
+	overflow: hidden;
+	position: fixed;
+	top:0;
+	left:0;
+	padding: 30px;
+	box-sizing: border-box;
+
+	background: #383838;
+}
+
+.menu {
+	overflow-y: auto;
+	height: 100%;
+}
+
+.menu-link{
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	height: 70px;
+	padding: 15px;
+	text-decoration: none;
+
+	color: #B7B7B7;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.2; /* 122.222% */
+	text-transform: uppercase;
+
+	border-bottom: 2px solid rgba(242, 242, 242, 0.10);
+	transition: .2s;
+}
+
+.menu-item:last-of-type .menu-link{
+	border-bottom: none;
+}
+
+.menu-link:hover,
+.menu-link.active{
+	color: #FFF;
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.logo-link{
+	display: block;
+	margin: 29px auto;
+}
+
+input, button{
+	border: none;
+	outline: none;
+	border-radius: 7px;
+}
+
+
+.toolbar {
+	background: #fff;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+	grid-area: toolbar;
+	display: flex;
+
+	box-sizing: border-box;
+	padding: 27px 51px 21px 41px;
+
+	align-items: center;
+}
+
+.search{
+	display: flex;
+	width: 80%;
+	height: 40px;
+}
+
+.field{
+	border-bottom: solid 1px #C4C4C4;
+	width: 90%;
+	display: flex;
+	align-items: center;
+}
+
+.field label{
+	width: 100%;
+}
+
+.field label input{
+	width: 100%;
+	height: 39px;
+	color: #999;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 2.2; /* 222.222% */
+}
+
+.toolbar form button{
+	color: #FFF;
+	text-align: center;
+	font-family: Open Sans, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 40px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+
+.search button{
+	width: 89px;
+	height: 40px;
+	margin-left: 15px;
+	background: #E7A04E;
+}
+
+.add-film{
+	margin-left: auto;
+}
+
+.add-film button{
+	width: 158px;
+	height: 40px;
+	background: #12C584;
+}
+
+
+.catalog{
+	grid-area: content;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 40px;
+	box-sizing: border-box;
+	column-gap: 30px;
+	row-gap: 48px;
+}
+
+.movie-item{
+	border-radius: 20px;
+	position: relative;
+	background: #FFF;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.10);
+	width: 370px;
+	height: 700px;
+	overflow: hidden;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	white-space: nowrap;
+}
+
+.movie-item h2{
+	color: #333;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.movie-item h3{
+	color: #999;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.8; /* 178.571% */
+
+}
+
+.movie-item .title, .description{
+	margin: 15px 20px;
+}
+
+.movie-item hr{
+	border: none;
+	border-top: 1px solid #F2F2F2;
+	width: 330px;
+}
+
+.description{
+	color: #333;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42; /* 142.857% */
+
+	overflow: hidden;
+	white-space: normal;
+}
+
+.movie-item .footer{
+	margin: 20px;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	height: 20px;
+}
+
+.genre{
+	color: #CCC;
+	text-align: right;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 2.2; /* 220% */
+	text-transform: uppercase;
+	margin-left: auto;
+
+}
+
+.time{
+	color: #CCC;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.83; /* 183.333% */
+	vertical-align: bottom;
+}
+
+.info{
+	padding: 20px;
+}
+
+
+.movie-item .footer{
+	margin-top: auto;
+}
+
+
+.movie-item-hover{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.70);
+	transition: .2s;
+}
+
+
+.movie-item:hover .movie-item-hover, .movie-item.active .movie-item-hover{
+	top:0
+}
+
+.detail-button button{
+	width: 221px;
+	height: 56px;
+	background-color: #12C584;
+
+	color: #FFF;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 3.11; /* 311.111% */
+	text-transform: uppercase;
+
+	cursor: pointer;
+}
+
+.detail{
+	grid-area: content;
+	display: flex;
+	flex-direction: column;
+	margin: 50px 40px 48px 40px;
+	padding: 40px;;
+	box-sizing: border-box;
+	background: #FFF;
+	height: min-content;
+}
+
+.detail .title{
+	display: flex;
+	color: #333;
+	font-size: 48px;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.title img{
+	margin-left: auto;
+}
+
+.subtitle{
+	display: flex;
+}
+
+.detail .subtitle h3{
+	color: #999;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: normal;
+	align-items: center;
+	height: 32px;
+}
+
+.detail .subtitle .age-limit{
+	box-sizing: border-box;
+	padding: 2px 6px;
+
+	border-radius: 7px;
+	border: 3px solid #CCC;
+	background: rgba(242, 242, 242, 0.10);
+	color: #CCC;
+
+	font-size: 18px;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.detail hr{
+	margin-top: 25px;
+	margin-bottom: 32px;
+	width: 100%;
+	border: none;
+	border-top: 1px solid #CCC;
+}
+
+.content{
+	display: flex;
+	gap: 40px;
+}
+
+.rating{
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.square{
+	width: 22px;
+	height: 22px;
+}
+
+.square.active{
+	background-color: #E78818;
+}
+
+.square.non-active{
+	background-color: #F2F2F2;
+}
+
+.circle{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	background-color: #E78818;
+
+	color: #FFF;
+	text-align: center;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.about-film{
+	display: flex;
+	flex-direction: column;
+}
+
+.about-film h2, .detail-description h2{
+	color: #333;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: normal;
+	padding-bottom: 22px;
+}
+
+table{
+	width: 100%;
+	padding-bottom: 15px;
+}
+
+.row-title{
+	width: 35%;
+	color: #666;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	padding-bottom: 15px;
+}
+
+.row-info{
+	color: #000;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	padding-bottom: 15px;
+}
+
+.detail-description p{
+	color: #000;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.55; /* 155.556% */
+}
