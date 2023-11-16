@@ -147,9 +147,10 @@ input, button{
 	background: #12C584;
 }
 
-
-.catalog{
+.content{
 	grid-area: content;
+}
+.catalog{
 	display: flex;
 	flex-wrap: wrap;
 	padding: 40px;
@@ -335,7 +336,7 @@ input, button{
 	border-top: 1px solid #CCC;
 }
 
-.content{
+.detail-information{
 	display: flex;
 	gap: 40px;
 }
