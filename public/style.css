@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
-body{
+body {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	height: 100vh;
 	width: 100vw;
@@ -26,8 +26,8 @@ body{
 
 	overflow: hidden;
 	position: fixed;
-	top:0;
-	left:0;
+	top: 0;
+	left: 0;
 	padding: 30px;
 	box-sizing: border-box;
 
@@ -39,7 +39,7 @@ body{
 	height: 100%;
 }
 
-.menu-link{
+.menu-link {
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
@@ -47,7 +47,7 @@ body{
 	padding: 15px;
 	text-decoration: none;
 
-	color: #B7B7B7;
+	color: #b7b7b7;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 1.2; /* 122.222% */
@@ -57,22 +57,22 @@ body{
 	transition: .2s;
 }
 
-.menu-item:last-of-type .menu-link{
+.menu-item:last-of-type .menu-link {
 	border-bottom: none;
 }
 
 .menu-link:hover,
-.menu-link.active{
-	color: #FFF;
+.menu-link.active {
+	color: #fff;
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.logo-link{
+.logo-link {
 	display: block;
 	margin: 29px auto;
 }
 
-input, button{
+input, button {
 	border: none;
 	outline: none;
 	border-radius: 7px;
@@ -91,24 +91,24 @@ input, button{
 	align-items: center;
 }
 
-.search{
+.search {
 	display: flex;
 	width: 80%;
 	height: 40px;
 }
 
-.field{
-	border-bottom: solid 1px #C4C4C4;
+.field {
+	border-bottom: solid 1px #c4c4c4;
 	width: 90%;
 	display: flex;
 	align-items: center;
 }
 
-.field label{
+.field label {
 	width: 100%;
 }
 
-.field label input{
+.field label input {
 	width: 100%;
 	height: 39px;
 	color: #999;
@@ -117,8 +117,8 @@ input, button{
 	line-height: 2.2; /* 222.222% */
 }
 
-.toolbar form button{
-	color: #FFF;
+.toolbar form button {
+	color: #fff;
 	text-align: center;
 	font-family: Open Sans, Helvetica, Arial, sans-serif;
 	font-size: 12px;
@@ -130,27 +130,28 @@ input, button{
 }
 
 
-.search button{
+.search button {
 	width: 89px;
 	height: 40px;
 	margin-left: 15px;
-	background: #E7A04E;
+	background: #e7a04e;
 }
 
-.add-film{
+.add-film {
 	margin-left: auto;
 }
 
-.add-film button{
+.add-film button {
 	width: 158px;
 	height: 40px;
-	background: #12C584;
+	background: #12c584;
 }
 
-.content{
+.content {
 	grid-area: content;
 }
-.catalog{
+
+.catalog {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 40px;
@@ -159,10 +160,10 @@ input, button{
 	row-gap: 48px;
 }
 
-.movie-item{
+.movie-item {
 	border-radius: 20px;
 	position: relative;
-	background: #FFF;
+	background: #fff;
 	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.10);
 	width: 370px;
 	height: 700px;
@@ -173,14 +174,19 @@ input, button{
 	white-space: nowrap;
 }
 
-.movie-item h2{
+.poster {
+	display: flex;
+	justify-content: center;
+}
+
+.movie-item h2 {
 	color: #333;
 	font-size: 22px;
 	font-weight: 600;
 	line-height: normal;
 }
 
-.movie-item h3{
+.movie-item h3 {
 	color: #999;
 	font-size: 14px;
 	font-weight: 600;
@@ -188,17 +194,17 @@ input, button{
 
 }
 
-.movie-item .title, .description{
+.movie-item .title, .description {
 	margin: 15px 20px;
 }
 
-.movie-item hr{
+.movie-item hr {
 	border: none;
-	border-top: 1px solid #F2F2F2;
+	border-top: 1px solid #f2f2f2;
 	width: 330px;
 }
 
-.description{
+.description {
 	color: #333;
 	font-size: 14px;
 	font-weight: 400;
@@ -208,7 +214,7 @@ input, button{
 	white-space: normal;
 }
 
-.movie-item .footer{
+.movie-item .footer {
 	margin: 20px;
 	display: flex;
 	flex-direction: row;
@@ -216,8 +222,8 @@ input, button{
 	height: 20px;
 }
 
-.genre{
-	color: #CCC;
+.genre {
+	color: #ccc;
 	text-align: right;
 	font-size: 10px;
 	font-weight: 600;
@@ -227,25 +233,25 @@ input, button{
 
 }
 
-.time{
-	color: #CCC;
+.time {
+	color: #ccc;
 	font-size: 12px;
 	font-weight: 400;
 	line-height: 1.83; /* 183.333% */
 	vertical-align: bottom;
 }
 
-.info{
+.info {
 	padding: 20px;
 }
 
 
-.movie-item .footer{
+.movie-item .footer {
 	margin-top: auto;
 }
 
 
-.movie-item-hover{
+.movie-item-hover {
 	position: absolute;
 	top: 100%;
 	left: 0;
@@ -259,16 +265,16 @@ input, button{
 }
 
 
-.movie-item:hover .movie-item-hover, .movie-item.active .movie-item-hover{
-	top:0
+.movie-item:hover .movie-item-hover, .movie-item.active .movie-item-hover {
+	top: 0
 }
 
-.detail-button button{
+.detail-button button {
 	width: 221px;
 	height: 56px;
-	background-color: #12C584;
+	background-color: #12c584;
 
-	color: #FFF;
+	color: #fff;
 	text-align: center;
 	font-size: 18px;
 	font-weight: 700;
@@ -278,18 +284,18 @@ input, button{
 	cursor: pointer;
 }
 
-.detail{
+.detail {
 	grid-area: content;
 	display: flex;
 	flex-direction: column;
 	margin: 50px 40px 48px 40px;
 	padding: 40px;;
 	box-sizing: border-box;
-	background: #FFF;
+	background: #fff;
 	height: min-content;
 }
 
-.detail .title{
+.detail .title {
 	display: flex;
 	color: #333;
 	font-size: 48px;
@@ -297,15 +303,15 @@ input, button{
 	line-height: normal;
 }
 
-.title img{
+.title img {
 	margin-left: auto;
 }
 
-.subtitle{
+.subtitle {
 	display: flex;
 }
 
-.detail .subtitle h3{
+.detail .subtitle h3 {
 	color: #999;
 	font-size: 24px;
 	font-weight: 600;
@@ -314,75 +320,75 @@ input, button{
 	height: 32px;
 }
 
-.detail .subtitle .age-limit{
+.detail .subtitle .age-limit {
 	box-sizing: border-box;
 	padding: 2px 6px;
 
 	border-radius: 7px;
-	border: 3px solid #CCC;
+	border: 3px solid #ccc;
 	background: rgba(242, 242, 242, 0.10);
-	color: #CCC;
+	color: #ccc;
 
 	font-size: 18px;
 	font-weight: 600;
 	line-height: normal;
 }
 
-.detail hr{
+.detail hr {
 	margin-top: 25px;
 	margin-bottom: 32px;
 	width: 100%;
 	border: none;
-	border-top: 1px solid #CCC;
+	border-top: 1px solid #ccc;
 }
 
-.detail-information{
+.detail-information {
 	display: flex;
 	gap: 40px;
 }
 
-.rating{
+.rating {
 	display: flex;
 	gap: 10px;
 	align-items: center;
 	margin-bottom: 20px;
 }
 
-.square{
+.square {
 	width: 22px;
 	height: 22px;
 }
 
-.square.active{
-	background-color: #E78818;
+.square.active {
+	background-color: #e78818;
 }
 
-.square.non-active{
-	background-color: #F2F2F2;
+.square.non-active {
+	background-color: #f2f2f2;
 }
 
-.circle{
+.circle {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 55px;
 	height: 55px;
 	border-radius: 50%;
-	background-color: #E78818;
+	background-color: #e78818;
 
-	color: #FFF;
+	color: #fff;
 	text-align: center;
 	font-size: 22px;
 	font-weight: 700;
 	line-height: normal;
 }
 
-.about-film{
+.about-film {
 	display: flex;
 	flex-direction: column;
 }
 
-.about-film h2, .detail-description h2{
+.about-film h2, .detail-description h2 {
 	color: #333;
 	font-size: 24px;
 	font-weight: 700;
@@ -390,12 +396,12 @@ input, button{
 	padding-bottom: 22px;
 }
 
-table{
+table {
 	width: 100%;
 	padding-bottom: 15px;
 }
 
-.row-title{
+.row-title {
 	width: 35%;
 	color: #666;
 	font-size: 16px;
@@ -404,7 +410,7 @@ table{
 	padding-bottom: 15px;
 }
 
-.row-info{
+.row-info {
 	color: #000;
 	font-size: 16px;
 	font-weight: 400;
@@ -412,7 +418,7 @@ table{
 	padding-bottom: 15px;
 }
 
-.detail-description p{
+.detail-description p {
 	color: #000;
 	font-size: 18px;
 	font-weight: 400;

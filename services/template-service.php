@@ -36,3 +36,12 @@ function truncate(string $text, ?int $maxLength = null): string
 
 	return $text;
 }
+
+function outputLayout(string $title, string $content): string
+{
+	return view('layout', [
+		'title' => $title,
+		'menu' => require ROOT . '/menu.php',
+		'content' => $content,
+	]);
+}
