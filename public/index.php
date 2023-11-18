@@ -19,22 +19,21 @@ if (isset($_GET['movie_id']))
 
 if (isset($_GET['genre']))
 {
-	$genre = $_GET['genre'];
-	$genreSelected = true;
+	$genre = $genres[$_GET['genre']];
+	$movies = array_filter($movies, fn($movie) => in_array($genre, $movie['genres'], true));
 }
 
 if (isset($_GET['search']))
 {
 	$search = $_GET['search'];
+	$movies = array_filter($movies, fn($movie) => stripos($movie['title'], $search) !== false);
 }
+
+
 
 echo outputLayout(
 	$title,
 				  view('pages/index', [
 					  'movies' => $movies,
-					  'genres' => $genres,
-					  'genre' => $genre,
-					  'genreSelected' => $genreSelected,
-					  'search' => $search,
 				  ])
 );
