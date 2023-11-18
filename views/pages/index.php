@@ -4,6 +4,7 @@
  * @var array $genres
  * @var string $genre
  * @var bool $genreSelected
+ * @var null|string $search
  */
 
 ?>
@@ -21,6 +22,15 @@
 			} ?>
 		<?php
 		endif ?>
+		<?php
+		if ($search !== null)
+		{
+			if (strpos($movie['title'], $search) === false)
+			{
+				continue;
+			}
+		}
+		?>
 		<?= view('components/film-card', ['movie' => $movie]) ?>
 	<?php
 	endforeach; ?>

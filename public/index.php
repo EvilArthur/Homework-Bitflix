@@ -10,6 +10,7 @@ require_once __DIR__ . '/../boot.php';
 $title = option('APP_NAME', 'Bitflix');
 $genreSelected = false;
 $genre = null;
+$search = null;
 if (isset($_GET['movie_id']))
 {
 	$movie_id = $_GET['movie_id'];
@@ -22,6 +23,11 @@ if (isset($_GET['genre']))
 	$genreSelected = true;
 }
 
+if (isset($_GET['search']))
+{
+	$search = $_GET['search'];
+}
+
 echo outputLayout(
 	$title,
 				  view('pages/index', [
@@ -29,5 +35,6 @@ echo outputLayout(
 					  'genres' => $genres,
 					  'genre' => $genre,
 					  'genreSelected' => $genreSelected,
+					  'search' => $search,
 				  ])
 );
