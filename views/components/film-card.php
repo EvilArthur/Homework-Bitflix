@@ -23,7 +23,7 @@
 		<p class="genre"><?= truncate(implode(', ', $movie['genres']), option('TRUNCATE_GENRES', 31)) ?></p>
 	</div>
 	<div class="movie-item-hover">
-		<a class="detail-button" href="<?= 'detail.php?movie_id=' . $movie['id'] ?>">
+		<a class="detail-button" href="<?= 'detail.php?movieId=' . $movie['id'] ?>">
 			<button>Подробнее</button>
 		</a>
 	</div>
