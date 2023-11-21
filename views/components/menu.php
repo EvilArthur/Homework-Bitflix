@@ -1,7 +1,6 @@
 <?php
 /**
  * @var array $items
- * class="menu-link
  */
 
 $currentPage = $_SERVER['REQUEST_URI'];

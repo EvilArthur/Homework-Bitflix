@@ -1,5 +1,4 @@
 <?php
-mb_internal_encoding('UTF-8');
 function view(string $path, array $variables = []) : string
 {
 	if(!preg_match('/^[0-9A-Za-z\/_-]+$/', $path))
@@ -28,20 +27,35 @@ function truncate(string $text, ?int $maxLength = null): string
 		return $text;
 	}
 
-	$cropped = substr($text, 0, $maxLength);
+	$cropped = mb_substr($text, 0, $maxLength);
 	if ($cropped !== $text)
 	{
+		$cropped = trim($cropped);
 		return "$cropped...";
 	}
 
 	return $text;
 }
 
-function outputLayout(string $title, string $content): string
+function outputLayout(string $title, array $genres, string $content): string
 {
 	return view('layout', [
 		'title' => $title,
-		'menu' => require ROOT . '/menu.php',
+		'menu' => prepareMenu($genres),
 		'content' => $content,
 	]);
+}
+
+function prepareMenu($genres) : array
+{
+	$items = [];
+
+	$items[] = ['url' => '/', 'text' => 'Главная'];
+	$items[] = ['url' => '/favourites.php', 'text' => 'Избранное'];
+	foreach ($genres as $url => $name)
+	{
+		$items[] = ['url' => "/?genre=$url", 'text' => $name];
+	}
+
+	return $items;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @var int|null $movie
+ * @var array|null $movie
  */
 
 ?>
@@ -10,7 +10,7 @@
 <div class="detail">
 	<?php
 	if ($movie === null): ?>
-		<p>You need choose film to see detail</p>
+		<p>You need to select a movie that exists in the catalog to see detail</p>
 	<?php
 	else: ?>
 		<div class="header">

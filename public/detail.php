@@ -15,4 +15,4 @@ if (isset($_GET['movie_id']))
 	$movie = $movies[$movie_id - 1];
 }
 
-echo outputLayout($title, view('pages/detail', ['movie' => $movie]));
+echo outputLayout($title, $genres, view('pages/detail', ['movie' => $movie]));
