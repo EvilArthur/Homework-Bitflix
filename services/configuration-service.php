@@ -1,6 +1,8 @@
 <?php
-function option(string $name, $defaultValue = null){
-	/** @var array $config*/
+
+function option(string $name, $defaultValue = null)
+{
+	/** @var array $config */
 	static $config = null;
 
 	if ($config === null)

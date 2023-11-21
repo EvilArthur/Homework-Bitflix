@@ -3,16 +3,10 @@
 /**
  * @var array $movies
  * @var array $genres
-*/
-
+ */
 
 require_once __DIR__ . '/../boot.php';
 $title = option('APP_NAME', 'Bitflix');
-if (isset($_GET['movie_id']))
-{
-	$movie_id = $_GET['movie_id'];
-	$movie = $movies[$movie_id - 1];
-}
 
 if (isset($_GET['genre']))
 {
@@ -26,12 +20,10 @@ if (isset($_GET['search']))
 	$movies = getMoviesByTitle($movies, $search);
 }
 
-
-
 echo outputLayout(
 	$title,
 	$genres,
-				  view('pages/index', [
-					  'movies' => $movies,
-				  ])
+	view('pages/index', [
+		'movies' => $movies,
+	])
 );

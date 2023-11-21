@@ -1,7 +1,8 @@
 <?php
-function view(string $path, array $variables = []) : string
+
+function view(string $path, array $variables = []): string
 {
-	if(!preg_match('/^[0-9A-Za-z\/_-]+$/', $path))
+	if (!preg_match('/^[0-9A-Za-z\/_-]+$/', $path))
 	{
 		throw new Exception('Invalid template path');
 	}
@@ -22,7 +23,7 @@ function view(string $path, array $variables = []) : string
 
 function truncate(string $text, ?int $maxLength = null): string
 {
-	if($maxLength === null)
+	if ($maxLength === null)
 	{
 		return $text;
 	}
@@ -31,6 +32,7 @@ function truncate(string $text, ?int $maxLength = null): string
 	if ($cropped !== $text)
 	{
 		$cropped = trim($cropped);
+
 		return "$cropped...";
 	}
 
@@ -46,7 +48,7 @@ function outputLayout(string $title, array $genres, string $content): string
 	]);
 }
 
-function prepareMenu($genres) : array
+function prepareMenu($genres): array
 {
 	$items = [];
 

@@ -7,9 +7,11 @@
 
 
 <div class="catalog">
-	<?php if(empty($movies)):?>
+	<?php
+	if (empty($movies)): ?>
 		<p>There are no films with this name</p>
-	<?php endif;?>
+	<?php
+	endif; ?>
 	<?php
 	foreach ($movies as $movie): ?>
 		<?= view('components/film-card', ['movie' => $movie]) ?>

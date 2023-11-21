@@ -1,6 +1,5 @@
 <?php
 
-
 function convertMinutesToHours(int $minutes): string
 {
 	$nonSignificantZeroHour = '0';
@@ -16,6 +15,7 @@ function convertMinutesToHours(int $minutes): string
 	{
 		$nonSignificantZeroMinutes = '';
 	}
+
 	return sprintf("%s%s:%s%s", $nonSignificantZeroHour, $hours, $nonSignificantZeroMinutes, $remainingMinutes);
 }
 
