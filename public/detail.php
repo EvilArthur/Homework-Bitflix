@@ -1,10 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../boot.php';
-/**
- * @var array $movies
- * @var array $genres
- */
+$movies = getMovies();
+$genres = getGenres();
 
 $title = option('APP_NAME', 'Bitflix') . ' :: Detail';
 $movie = null;

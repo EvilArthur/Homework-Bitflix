@@ -1,12 +1,10 @@
 <?php
 
-/**
- * @var array $movies
- * @var array $genres
- */
-
 require_once __DIR__ . '/../boot.php';
 $title = option('APP_NAME', 'Bitflix');
+
+$genres = getGenres();
+$movies = getMovies();
 
 if (isset($_GET['genre']))
 {
@@ -17,7 +15,10 @@ if (isset($_GET['genre']))
 if (isset($_GET['search']))
 {
 	$search = $_GET['search'];
-	$movies = getMoviesByTitle($movies, $search);
+	if ($search !== "")
+	{
+		$movies = getMoviesByTitle($movies, $search);
+	}
 }
 
 echo outputLayout(

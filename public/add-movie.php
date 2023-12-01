@@ -1,9 +1,7 @@
 <?php
 
-/**
- * @var array $genres
- */
 require_once __DIR__ . '/../boot.php';
+$genres = getGenres();
 
 $title = option('APP_NAME', 'Bitflix') . ' :: Add movie';
 

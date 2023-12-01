@@ -39,7 +39,7 @@
 						<div class="non-active square"></div>
 					<?php
 					endfor ?>
-					<div class="circle"><?= $movie['rating'] ?></div>
+					<div class="circle"><?= number_format($movie['rating'], 1) ?></div>
 				</div>
 				<div class="about-film">
 					<h2>О фильме</h2>
