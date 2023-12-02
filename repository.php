@@ -24,10 +24,36 @@ function getGenres(): array
 	return $genres;
 }
 
-function getMovies(): array
+function getMovies(string $id = null, string $genre = null, string $search = null): array
 {
+	$idCondition = '';
+	$genreCondition = '';
+	$searchCondition = '';
 	$connection = getDbConnection();
-
+	if ($id !== null)
+	{
+		$idCondition = "m.ID = {$id}";
+	}
+	if ($genre !== null)
+	{
+		$genreEscaped = mysqli_real_escape_string($connection, $genre);
+		$genreCondition = "m.ID IN (SELECT m.ID
+               FROM movie m
+	                    INNER JOIN movie_genre mg ON m.ID = mg.MOVIE_ID
+	                    INNER JOIN genre g ON mg.GENRE_ID = g.ID
+               WHERE mg.MOVIE_ID = m.ID AND mg.GENRE_ID = g.ID AND g.NAME LIKE \"{$genreEscaped}\")";
+	}
+	if ($search !== null)
+	{
+		$searchEscaped = mysqli_real_escape_string($connection, $search);
+		$searchCondition = "m.TITLE LIKE '{$searchEscaped}%'";
+	}
+	$conditions = implode(
+		" AND ",
+		array_filter([$idCondition, $genreCondition, $searchCondition],
+			fn($value) => $value !== '')
+	);
+	$conditions = $conditions !== '' ? "WHERE " . $conditions : $conditions;
 	$result = mysqli_query(
 		$connection,
 		"
@@ -39,6 +65,7 @@ function getMovies(): array
 					INNER JOIN genre g ON mg.GENRE_ID = g.ID
 					INNER JOIN movie_actor ma ON m.ID = ma.MOVIE_ID
 					INNER JOIN actor a ON ma.ACTOR_ID = a.ID
+					{$conditions}
 					GROUP BY m.ID, m.TITLE, m.ORIGINAL_TITLE, m.DESCRIPTION, m.DURATION, m.AGE_RESTRICTION, m.RELEASE_DATE, m.RATING;
 		"
 	);
@@ -48,6 +75,7 @@ function getMovies(): array
 		throw new Exception(mysqli_error($connection));
 	}
 
+	$movies = [];
 	while ($row = mysqli_fetch_assoc($result))
 	{
 		$movies[] = [

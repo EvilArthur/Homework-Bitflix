@@ -18,13 +18,3 @@ function convertMinutesToHours(int $minutes): string
 
 	return sprintf("%s%s:%s%s", $nonSignificantZeroHour, $hours, $nonSignificantZeroMinutes, $remainingMinutes);
 }
-
-function getMoviesByGenres(array $movies, string $genre): array
-{
-	return array_filter($movies, fn($movie) => in_array($genre, $movie['genres'], true));
-}
-
-function getMoviesByTitle(array $movies, string $search): array
-{
-	return array_filter($movies, fn($movie) => mb_stripos($movie['title'], $search) !== false);
-}

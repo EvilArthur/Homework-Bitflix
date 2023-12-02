@@ -8,8 +8,9 @@ $movies = getMovies();
 
 if (isset($_GET['genre']))
 {
+
 	$genre = $genres[$_GET['genre']];
-	$movies = getMoviesByGenres($movies, $genre);
+	$movies = getMovies(null, $genre);
 }
 
 if (isset($_GET['search']))
@@ -17,7 +18,7 @@ if (isset($_GET['search']))
 	$search = $_GET['search'];
 	if ($search !== "")
 	{
-		$movies = getMoviesByTitle($movies, $search);
+		$movies = getMovies(null, null, $search);
 	}
 }
 

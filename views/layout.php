@@ -33,7 +33,7 @@
 		<?= view('components/menu', ['items' => $menu]) ?>
 	</header>
 	<section class="toolbar">
-		<form class="search" action="" method="get">
+		<form class="search" action="/" method="get">
 			<div class="field">
 				<img src="<?= "/img/search.svg" ?>" alt="search">
 				<label><input name="search" placeholder="Поиск по каталогу..." type="search"></label>

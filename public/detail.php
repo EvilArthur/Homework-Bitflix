@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../boot.php';
-$movies = getMovies();
 $genres = getGenres();
 
 $title = option('APP_NAME', 'Bitflix') . ' :: Detail';
@@ -10,9 +9,9 @@ $movie = null;
 if (isset($_GET['movieId']))
 {
 	$movieId = $_GET['movieId'];
-	if (array_key_exists($movieId - 1, $movies))
+	if ((string)(int)($movieId) === $movieId)
 	{
-		$movie = $movies[$movieId - 1];
+		$movie = getMovies($movieId)[0];
 	}
 }
 
