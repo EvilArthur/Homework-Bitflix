@@ -56,7 +56,7 @@ function prepareMenu($genres): array
 	$items[] = ['url' => '/favourites.php', 'text' => 'Избранное'];
 	foreach ($genres as $url => $name)
 	{
-		$items[] = ['url' => "/?genre=$url", 'text' => $name];
+		$items[] = ['url' => "/?genre[]=$url", 'text' => $name];
 	}
 
 	return $items;

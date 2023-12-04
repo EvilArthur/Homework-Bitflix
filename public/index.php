@@ -3,28 +3,30 @@
 require_once __DIR__ . '/../boot.php';
 $title = option('APP_NAME', 'Bitflix');
 
-$genres = getGenres();
+$allGenres = getGenres();
 $movies = getMovies();
+
+$genres = [];
+$search = null;
 
 if (isset($_GET['genre']))
 {
-
-	$genre = $genres[$_GET['genre']];
-	$movies = getMovies(null, $genre);
+	foreach ($_GET['genre'] as $genre)
+	{
+		$genres[] = $genre;
+	}
 }
 
 if (isset($_GET['search']))
 {
-	$search = $_GET['search'];
-	if ($search !== "")
-	{
-		$movies = getMovies(null, null, $search);
-	}
+	$search = $_GET['search'] !== "" ? $_GET['search'] : null;
 }
+
+$movies = getMovies($genres, $search);
 
 echo outputLayout(
 	$title,
-	$genres,
+	$allGenres,
 	view('pages/index', [
 		'movies' => $movies,
 	])

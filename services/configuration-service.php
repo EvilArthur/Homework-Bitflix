@@ -14,7 +14,7 @@ function option(string $name, $defaultValue = null)
 		}
 		else
 		{
-			$localConfig = [];
+			throw new Exception('Error, configuration for the database not found');
 		}
 
 		$config = array_merge($masterConfig, $localConfig);

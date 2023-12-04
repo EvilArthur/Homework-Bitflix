@@ -11,7 +11,7 @@ if (isset($_GET['movieId']))
 	$movieId = $_GET['movieId'];
 	if ((string)(int)($movieId) === $movieId)
 	{
-		$movie = getMovies($movieId)[0];
+		$movie = getMovieById($movieId);
 	}
 }
 

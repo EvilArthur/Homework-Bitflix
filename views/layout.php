@@ -27,7 +27,7 @@
 <body>
 <div class="wrapper">
 	<header class="sidebar">
-		<a href="/public" class="logo-link">
+		<a href="/" class="logo-link">
 			<img src="<?= "/img/logo.svg" ?>" alt="logo">
 		</a>
 		<?= view('components/menu', ['items' => $menu]) ?>
